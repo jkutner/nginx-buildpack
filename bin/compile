@@ -38,4 +38,6 @@ echo "-----> Installed nginx"
 cp $OPT_DIR/recompose $heroku_bin_dir/recompose
 chmod +x ${heroku_bin_dir}/recompose
 
-cp $OPT_DIR/nginx.conf.erb $nginx_dir/
+if [ ! -f $nginx_dir/nginx.conf.erb ]; then
+  cp $OPT_DIR/nginx.conf.erb $nginx_dir/
+fi
