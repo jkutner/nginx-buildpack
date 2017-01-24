@@ -1,1 +1,2 @@
-./.nginx/bin/nginx-start &
+cd .nginx
+./bin/nginx-start &
