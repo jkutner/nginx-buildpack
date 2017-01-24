@@ -31,12 +31,12 @@ nginx_bin_dir=$nginx_dir/bin
 mkdir -p $nginx_bin_dir
 
 $(fetch_nginx_tarball) | tar xzC $nginx_bin_dir
-cp $OPT_DIR/web $nginx_dir/bin/nginx-start
+cp $OPT_DIR/nginx-start $nginx_dir/bin/nginx-start
 chmod +x $nginx_dir/bin/nginx-start
 echo "-----> Installed nginx"
 
-cp $OPT_DIR/recompose $heroku_bin_dir/recompose
-chmod +x ${heroku_bin_dir}/recompose
+mkdir -p $BUILD_DIR/.profile.d
+cp $OPT_DIR/nginx-profile.sh $BUILD_DIR/.profile.d/nginx-profile.sh
 
 if [ ! -f $nginx_dir/nginx.conf.erb ]; then
   cp $OPT_DIR/nginx.conf.erb $nginx_dir/
